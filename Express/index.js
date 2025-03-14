@@ -1,9 +1,27 @@
+// nodemon for server start
 const express = require('express');
 const app = express();
 let port = 3000;
 // console.dir(app);
 app.listen(port , ()=>{
     console.log(`server is starting at port number ${port}`);  
+})
+app.get("/" , (req , res) =>{
+    console.log('Hello root page');
+    res.send('Maal aa gya ')
+})
+app.get("/:username" , (req , res) =>{
+    let {username} = req.params;
+    console.log(req.params);
+    
+    console.log('Hello root page');
+    res.send(`maal aa hya ${username}`)
+})
+app.post("/basit" , (req , res) =>{
+    res.send('chlta phirta SEO hai SEO');
+})
+app.get("*" , (req , res) =>{
+    
 })
 // app.use((req , res) =>{
     
@@ -19,10 +37,10 @@ app.listen(port , ()=>{
 //     })
 // })
 /* to send request specific page we use the get request here we define the to parameter*/
-app.get("/" , (req , res) =>{
-    console.log('The request is send to the root path');
-    res.send('lets check nodemon package , wah yaar it will work');
-})
+// app.get("/" , (req , res) =>{
+//     console.log('The request is send to the root path');
+//     res.send('lets check nodemon package , wah yaar it will work');
+// })
 // to make the search query we use this
 
 // app.get("/search" , (req , res) =>{
