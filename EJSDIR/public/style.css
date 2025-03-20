@@ -1,0 +1,15 @@
+*{
+    background-color: palevioletred;
+}
+img{
+    height: 100px;
+    width: 100px;
+}
+.footer{
+    background-color: black;
+    color: white;
+    height: 40px;
+    display: flex;
+    align-items: center ;
+    justify-content: center;
+}

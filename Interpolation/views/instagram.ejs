@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=data.name%></title>
+    <style>
+        body{
+            background-color: pink;
+            
+        }
+        img{
+            height: 100px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>the username will be @ <%= data.name %></h1>
+    <button>Follower</button>
+    <button>following</button>
+    <p>Follower: &nbsp; <%= data.followers%> &nbsp;&nbsp;&nbsp;  Follower: &nbsp;<%= data.following%></p>
+    <hr>
+    <%  for (const post of data.posts) { %>
+      <img src="<%= post.image%>" alt="">  
+      
+    <p>Likes: &nbsp; <%= post.likes%> &nbsp;&nbsp;&nbsp;  Comments: &nbsp;<%= post.comments%></p>
+    <%}%>
+</body>
+</html>

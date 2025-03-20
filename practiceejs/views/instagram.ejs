@@ -14,10 +14,20 @@
     <button>follow</button>
     <button>Message</button>
     <h3>the follower of this accounts is </h3>
-    <ul>
-        <% for(let name of follower) { %>
-            <li> <%=name%> </li>
+    <h4>the username will be : <h2> <%= username%> </h2></h4>
+     <h1>List of followers</h1>
+     <% if (username == "wasim") {%>
+         <% for(let name of follower){%>
+        <p>The name of follower is : <%= name%></p>
             <% } %>
+    <% } %>
+   
+    <h3>Hello its me EJS</h3>
+    
+     <ul>
+     <% for(let name of follower) { %>
+        <li><%= name%></li>
+            <% }%>
     </ul>
-</body>
+    </body>
 </html>

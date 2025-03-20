@@ -9,7 +9,9 @@ app.listen(port , () =>{
     console.log(`server will be started at the port number ${port}`);
     
 })
-
+// app.use(express.static('public'));
+// app.use(express.static('/public'));
+app.use(express.static(path.join(__dirname , "public")));
 app.get('/about' , (req , res) =>{
     res.send("request will be send at home page");
 })
@@ -32,11 +34,18 @@ app.get('/rolldice' ,(req , res) =>{
         data :dicevalue
     });
 })
-
-
-
-
  app.set('view engine','ejs');
+
+ app.get("/ig/:username" , (req , res) =>{
+    let {username} = req.params;
+    const InstaData = require("./data.json");
+    const data = InstaData[username];
+    if(data){
+        res.render('instagram' , {data});
+    }else{
+        res.render('error');
+    }
+})
 
 // /*if we access the ejs from parent directory so the app is not runing because it look the views folder from parent directory
 // and its not find so to solve this issue we set the path
