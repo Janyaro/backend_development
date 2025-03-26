@@ -12,6 +12,7 @@ app.set("view engine" , "ejs");
 
 // app.set("views" , path.join(__dirname , "/views"));
 app.set('views' , path.join(__dirname , '/views'));
+
 app.get("/" , (req, res) =>{
     res.send('home page is access');
 });
@@ -32,5 +33,5 @@ app.get("/ig/:username" , (req , res) =>{
         res.render('error' );
         
     }
-    
 })
+
