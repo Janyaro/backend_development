@@ -13,18 +13,22 @@ app.listen(port , ()=>{
 })
 let posts = [
     {
+      id : '1a',
         username:'waseem akram',
         content :'coding is important'
       },
       {
+        id : '1b',
         username:'jatio',
         content :'everything is temporary'
       },
       {
+        id : '1c',
         username:'basit khan',
         content :'mujhe seo sekhna hai '
       },
       {
+        id : '1d',
         username:'danish khan',
         content :'game khelne de',
       },
@@ -39,5 +43,12 @@ app.get('/posts/new' , (req,res) =>{
 app.post('/posts' , (req,res) =>{
     let {username,content} = req.body;
     posts.push({username,content});
-    res.send('data save successfully');
+    res.redirect('/posts');
+})
+app.get('/posts/:id' , (req , res) =>{
+  let {id} = req.params;
+  let post = posts.find((p) => id === p.id);
+
+  // console.log(typeof post);
+  res.render('show.ejs' , {post});
 })
